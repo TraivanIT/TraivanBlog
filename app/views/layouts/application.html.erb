@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>TraivanBlog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +12,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'shared/post_nav'%>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+        <div class="col-md-4"> 
+          <%= render 'shared/sidebar_widgets'%>
+        </div>
+      </div>
+    </div><!--end of class container-->
+    <%= render 'shared/post_footer'%>
+    
+
   </body>
 </html>

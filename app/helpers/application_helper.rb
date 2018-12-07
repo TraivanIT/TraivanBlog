@@ -11,4 +11,5 @@ module ApplicationHelper
       falsey
     end
   end
+
 end
