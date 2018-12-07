@@ -2,7 +2,7 @@ class CreateTraivans < ActiveRecord::Migration[5.2]
   def change
     create_table :traivans do |t|
       t.string :fullname
-      t.string :user
+      t.string :username
       t.string :password_digest
 
       t.timestamps

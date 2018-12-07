@@ -1,0 +1,41 @@
+<h1>New Tags</h1>
+<%= form_for [:admin ,@tag] do |f|%>
+  <div>
+    <%= f.text_area :name, placeholder: 'e,g: Ruby, HTML, CSS' , rows: 10%>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+<hr>
+<h1>List Tags</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Created</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tags.each do |t|%>
+      <tr>
+        <td><%= t.id%></td>
+        <td><%= t.name%></td>
+        <td><%= status_convertor(t.in_use?, truthy: 'in use', falsey: 'not in use' )%></td>
+        <td><%= time_ago t.created_at%></td>
+        <td>
+          <%= link_to edit_admin_tag_path(t) do %>
+            <button type="button">edit</button>
+          <% end %>
+          
+          <%= tag_deleteable_button(t)%>
+            
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

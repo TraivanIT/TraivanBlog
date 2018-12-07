@@ -1,0 +1,54 @@
+<h1>Post List</h1>
+<%= link_to 'new post', new_admin_post_path%>
+<hr>
+<%= render 'search', route: admin_posts_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Tags</th>
+      <th>Created</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post|%>
+      <tr>
+        <td><%= post.id%></td>
+        <td><%= post.title%></td>
+        <td><%= post.publish%></td>
+        <td>
+          <%post.tags.each do |t| %>
+            <%= "#{t.id}" %> <%= t.name%> 
+          <% end %>
+          </td>
+        <td><%= time_ago post.created_at%></td>
+        <td>
+          <%= link_to 'edit', edit_admin_post_path(post.id)%>
+          <%= link_to 'delete', admin_post_path(post.id), method: :delete, data: {confirm: 'Are you sure?' }%>
+            
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @posts%>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
