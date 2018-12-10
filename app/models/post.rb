@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :tags , through: :post_tags , dependent: :destroy
   validates :title, :content, presence: true
 
+  mount_uploader :blog_image, BlogUploader
+
 
   def self.search_post(post)
     where("title LIKE ? OR content LIKE ?", "%#{post}%", "%#{post}%" )

@@ -10,6 +10,7 @@
       <th>Title</th>
       <th>Status</th>
       <th>Tags</th>
+      <th>Image</th>
       <th>Created</th>
       <th>Action</th>
     </tr>
@@ -25,8 +26,15 @@
             <%= "#{t.id}" %> <%= t.name%> 
           <% end %>
           </td>
+          <td>
+            
+       
+         
+          </td>
+     
         <td><%= time_ago post.created_at%></td>
         <td>
+          <%= link_to 'show', admin_post_path(post.id)%>
           <%= link_to 'edit', edit_admin_post_path(post.id)%>
           <%= link_to 'delete', admin_post_path(post.id), method: :delete, data: {confirm: 'Are you sure?' }%>
             

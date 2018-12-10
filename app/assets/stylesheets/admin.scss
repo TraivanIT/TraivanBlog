@@ -1,6 +1,33 @@
-#bg{
+@import "bootstrap";
+html , body{
   background-color: #f3f3f4;
+  color: #676a6c;
+  height: 100%;
 }
-.disable{
-  background-color: #f3f3f3;
+
+.box{
+  border: 1px red dotted;
+}
+#side-menu {
+  background-color: #3f4050;
+  padding-top: 0px;
+}
+#side-menu h1{
+  color: #1f3647;
+  text-align: center;
+  margin: 10px 0px;
+  font-size: 25px;
+}
+
+.custome-table {
+  height: 100%;
+ 
+}
+.custome-row{
+  height: 100%;
+}
+.custome-cell{
+  height: 100%;
+ 
+
 }

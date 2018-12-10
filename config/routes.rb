@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #front-end routes
   resources :posts , only: [:index ,:show]
   get 'about', to: 'posts#about'
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
 
   #adminroutes
   namespace :admin do
+    resources :dashboard, only: [:index]
     resources :traivans, only: [:index, :edit, :update]
     resources :sessions, only: [:new, :create, :destroy]
     resources :posts
